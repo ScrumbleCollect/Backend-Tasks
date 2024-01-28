@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+ 
+  <link rel="stylesheet" href="css/styles.css">
+  <title>Document</title>
+</head>
+
+<body>
+
+    <div class="header">
+      <h2>Upload Images</h2>
+      <div class="server-message"></div>
+    </div>
+
+    <div class="input-box">
+      <p>Drag & drop photos here or click to <span class="browse" style="font-weight: bold">Browse</span></p>
+      <input type="file" class="image_uploaded" accept="image/png, image/jpg" />
+    </div>
+
+    <h2>Display Logo</h2>
+    <div class="display_logo"></div>
+     
+  <script>
+ 
+    input_image = document.querySelector(".image_uploaded");
+    var upload_image = "";
+
+    
+    input_image.addEventListener("change", () => {
+     
+      const reader = new FileReader();
+      reader.addEventListener("load", () => {
+        upload_image = reader.result;
+      
+        document.querySelector(".display_logo").innerHTML = `<img src="${upload_image}">`
+      
+        
+
+
+      } )
+
+     reader.readAsDataURL(input_image.files[0]);
+    })
+
+    
+    
+
+    
+
+    
+
+  </script>
+
+</body>
+
+</html>
