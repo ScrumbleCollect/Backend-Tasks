@@ -7,6 +7,7 @@
                 $name = $_POST['name'];
                 $color = $_POST['color'];
                 $price = $_POST['price'];
+                //prevent product changed to empty fields
                 if (!$name){
                     $name = $_SESSION['productList'][0]['product_name'];
                 }
@@ -17,6 +18,7 @@
                     $color = $_SESSION['productList'][0]['color'];
                 }
 
+                //send changes to database
                 $id = $_SESSION['productList'][0]['product_id'];
                 $sql = "UPDATE products SET product_name='$name', color='$color', price='$price' WHERE product_id=$id"; 
                 if(mysqli_query($conn, $sql)){ 

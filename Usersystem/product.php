@@ -5,6 +5,7 @@ include "db_conn.php";
 ?>
 <html>
 <head>
+    
 	<title>HOME</title>
 	<link rel="stylesheet" type="text/css" href="style.css">
 </head>
@@ -19,7 +20,10 @@ include "db_conn.php";
                 </tr>
         </thead>
         
-        <?php foreach ($_SESSION['productList'] as $row) { ?>
+        <?php 
+         //show product that user searched
+         foreach ($_SESSION['productList'] as $row) { ?>
+           
                 <tr>
                         <td><?php echo $row['product_name']; ?></td>
                         <td><?php echo $row['color']; ?></td>
